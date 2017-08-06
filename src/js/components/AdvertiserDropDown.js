@@ -21,7 +21,7 @@ export default class AdvertiserDropDown extends React.Component{
     });
   }
   
-  handleChange(event){
+  handleChange = (event) => {
     this.props.dispatch(advertiserSelected(event.target.value));
   }
   
@@ -29,7 +29,7 @@ export default class AdvertiserDropDown extends React.Component{
     return (
       <div className="dropDownRow">
         <label>Advertiser</label>
-        <select name="advertisers" onChange={this.handleChange.bind(this)}>
+        <select name="advertisers" onChange={this.handleChange}>
           {this.renderOptions()}
         </select>
       </div>

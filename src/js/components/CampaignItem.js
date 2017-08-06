@@ -10,18 +10,18 @@ import { campaignNameChange,campaignStatusChange,campaignBudgetChange,campaignSt
   };
 })
 export default class CampaignItem extends React.Component{  
-  handleCheckBox(event){
+  handleCheckBox = (event) => {
     //value will be either ture or false
     let value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     this.props.dispatch(campaignCheckboxChange(value,this.props.index))
   }
-  handleNameChange(event){
+  handleNameChange = (event) => {
     this.props.dispatch(campaignNameChange(event.target.value,this.props.index))
   }
-  handleStatusChange(event){
+  handleStatusChange = (event) => {
     this.props.dispatch(campaignStatusChange(event.target.value,this.props.index))
   }
-  handleBudgetChange(event){
+  handleBudgetChange = (event) => {
     //Formating and validation
     let formatedBugdet = event.target.value
     if(formatedBugdet.includes('$')) formatedBugdet = formatedBugdet.substring(1)  //Splices the $ if it is in the string
@@ -33,7 +33,7 @@ export default class CampaignItem extends React.Component{
     }
     this.props.dispatch(campaignBudgetChange(formatedBugdet,this.props.index))    //Dispatches the action after all the validation
   }
-  handleStartChange(date){
+  handleStartChange = (date) => {
     //Check to see if the date is invalid
     if(typeof date === "string" && !date.match(/[0-9]{2}\/[0-9]{2}\/[0-9]{2}/)){
       //hack: for some reason datepicker will keep the invalid user input, even if the state contains the old valid data. So I am adding one day
@@ -44,7 +44,7 @@ export default class CampaignItem extends React.Component{
     else  //If valid
       this.props.dispatch(campaignStartChange(date.format('MM/DD/YY'),this.props.index))  //send the action with the formated data
   }
-  handleEndChange(date){
+  handleEndChange = (date) => {
     //Check to see if the date is invalid
     if(typeof date === "string" && !date.match(/[0-9]{2}\/[0-9]{2}\/[0-9]{2}/)){
       //hack: for some reason datepicker will keep the invalid user input, even if the state contains the old valid data. So I am adding one day
@@ -57,21 +57,24 @@ export default class CampaignItem extends React.Component{
   }
   
   render(){
+    //Destructing the campaign object into these vars
+    const {checkbox, name, status, budget, start_date, end_date} = this.props.campaign;
+    
     return (
       <tr className="campaignItem">
         <td>
-          <input type="checkbox" checked={this.props.campaign.checkbox} onChange={this.handleCheckBox.bind(this)} />
+          <input type="checkbox" checked={checkbox} onChange={this.handleCheckBox} />
         </td>
         <td>
           <input 
             type="text" 
             className="name" 
-            value={this.props.campaign.name} 
-            onChange={this.handleNameChange.bind(this)} 
+            value={name} 
+            onChange={this.handleNameChange} 
           />
         </td>
         <td>
-          <select className="status" value={this.props.campaign.status} onChange={this.handleStatusChange.bind(this)} >
+          <select className="status" value={status} onChange={this.handleStatusChange} >
             <option value={true}>Active</option>
             <option value={false}>Inactive</option>
           </select>
@@ -79,14 +82,14 @@ export default class CampaignItem extends React.Component{
         <td>
           <input type="text" 
             className="budget"
-            value={`\$${this.props.campaign.budget}`} 
-            onChange={this.handleBudgetChange.bind(this)} 
+            value={`\$${budget}`} 
+            onChange={this.handleBudgetChange} 
           />
         </td>
         <td>
           <Datetime 
-            value={this.props.campaign.start_date}
-            onChange={this.handleStartChange.bind(this)}
+            value={start_date}
+            onChange={this.handleStartChange}
             className="date"
             dateFormat="MM/DD/YY"
             timeFormat={false}
@@ -95,8 +98,8 @@ export default class CampaignItem extends React.Component{
         </td>
         <td>
           <Datetime 
-            value={this.props.campaign.end_date}
-            onChange={this.handleEndChange.bind(this)}
+            value={end_date}
+            onChange={this.handleEndChange}
             className="date"
             dateFormat="MM/DD/YY"
             timeFormat={false}

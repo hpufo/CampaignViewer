@@ -9,7 +9,7 @@ import { resetStatus } from '../actions/actions';
   };
 })
 export default class Dialog extends React.Component{
-  handleClick(){
+  handleClick = () => {
     this.props.dispatch(resetStatus());
   }
   
@@ -19,7 +19,7 @@ export default class Dialog extends React.Component{
         <div id="dialog">
           <h2>{this.props.status}!</h2>
           <label>{this.props.message}</label>
-          <input type="button" id="dialogBtn" value="Ok" onClick={this.handleClick.bind(this)} />
+          <input type="button" id="dialogBtn" value="Ok" onClick={this.handleClick} />
         </div>
       );
     }

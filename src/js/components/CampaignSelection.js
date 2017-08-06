@@ -10,7 +10,7 @@ import { saveCampaigns,syncCampaignWithAPI,setErrorMessage } from '../actions/ac
   };
 })
 export default class CampaignSelection extends React.Component{
-  handleSubmit(event){
+  handleSubmit = (event) => {
     event.preventDefault();
     //Filter out the objs from the state to only get objs that are checked
     let checked = this.props.campaigns.filter((campaign) => campaign.checkbox)
@@ -41,7 +41,7 @@ export default class CampaignSelection extends React.Component{
       return (<div className="blank"></div>);
     
     return (
-      <form id="campaignForm" onSubmit={this.handleSubmit.bind(this)}>
+      <form id="campaignForm" onSubmit={this.handleSubmit}>
         <table>
           <thead>
             <tr id="campaignHead">
