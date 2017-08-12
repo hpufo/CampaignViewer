@@ -7,7 +7,8 @@ module.exports = {
   devtool: debug ? "inline-sourcemap" : null,
   entry: "./js/app.js",
   module: {
-    loaders: [
+    //rules replaced loaders from webpack 1
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules)/,
@@ -19,7 +20,12 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader'
+        //use: allows us to use multiple loaders (Webpacks loads from the bottom up. So sass-loader will be first)
+        use: [
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ]
       }
     ]
   },
