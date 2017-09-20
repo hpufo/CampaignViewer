@@ -33,7 +33,7 @@ module.exports = {
     path: __dirname + "/build/",
     filename: "app.min.js"
   },
-  plugins: [
+  plugins: debug ? [] : [
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       debug: false
