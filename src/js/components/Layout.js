@@ -1,20 +1,20 @@
 import React from 'react';
 import DropDownForm from './DropDownForm';
-import CampaignSelection from './CampaignSelection';
+import CampaignTable from './CampaignTable';
 import Dialog from './Dialog';
-import Top from './Top';
+import Header from './Header';
 
 export default class Layout extends React.Component{
   render(){
     return (
       <div id="container">
-        <Top />
+        <Header />
         <div id="mainContent">
           <div id="left">
             <DropDownForm />
           </div>
           <div id="right">
-            <CampaignSelection />
+            <CampaignTable />
           </div>
         </div>
         <Dialog />

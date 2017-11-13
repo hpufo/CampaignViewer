@@ -1,0 +1,46 @@
+$headerColor: #DDDDDD;
+$buttonColor: #2B78E4;
+$blackBorder: 1px solid black;
+
+@import 'layout';
+@import 'header';
+@import 'dropdown';
+@import 'campaign-item';
+@import 'campaign-table';
+@import 'dialog';
+
+*{
+  margin: 0;
+  padding: 0;
+}
+html, body, #app, #container{
+  height: 100%;
+}
+
+.btn{
+  color: white;
+  padding: 6px;
+  float: right;
+  min-width: 90px;
+  border: $blackBorder;
+  background-color: $buttonColor;
+  border:{
+    style: none;
+    radius: 5px;
+  };
+}
+select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, $headerColor 50%),
+    linear-gradient(135deg, $headerColor 50%, transparent 50%),
+    linear-gradient(to right, $headerColor, $headerColor);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    100% 0;
+  background-size:
+    0px 0px,
+    0px 0px,
+    1.5em 2.5em;
+  background-repeat: no-repeat;
+}

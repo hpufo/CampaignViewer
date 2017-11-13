@@ -1,0 +1,44 @@
+$blackBorder: 1px solid black;
+$trColor: #EEEEEE;
+
+@mixin inputText(){
+  border: $blackBorder;
+  padding: 4px;
+  background-color: transparent;
+}
+
+.campaignItem{
+  line-height: 35px;
+  &:nth-child(even){
+    background-color: $trColor;
+  }
+}
+
+.budget{
+  @include inputText();
+  width: 5%;
+  min-width: 65px;
+}
+.name{
+  @include inputText();
+  width: 16%;
+  min-width: 150px;
+}
+.status{
+  width: 5%;
+  min-width: 76px;
+}
+.rdt{
+  display: inline-block;
+  input.form-control{
+    width: 50%;
+    height: 23px;
+    min-width: 87px;
+    border: $blackBorder;
+    background:{
+      image: url("/images/cal.png");
+      repeat: no-repeat;
+      position-x: 64px;
+    };
+  }
+}

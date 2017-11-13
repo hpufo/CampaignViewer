@@ -3,7 +3,7 @@ import ReactDOM from "react-dom"
 import store from "./store"
 import { Provider } from "react-redux"
 import Layout from "./components/Layout"
-import "../sass/styles.scss"
+import "../sass/all-styles.scss"
 
 const app = document.getElementById('app');
 

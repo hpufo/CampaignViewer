@@ -9,7 +9,7 @@ import { saveCampaigns,syncCampaignWithAPI,setErrorMessage } from '../actions/ac
     campaigns: store.campaigns.campaigns
   };
 })
-export default class CampaignSelection extends React.Component{
+export default class CampaignTable extends React.Component{
   handleSubmit = (event) => {
     event.preventDefault();
     //Filter out the objs from the state to only get objs that are checked
