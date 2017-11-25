@@ -3,17 +3,18 @@ import DropDownForm from './DropDownForm';
 import CampaignTable from './CampaignTable';
 import Dialog from './Dialog';
 import Header from './Header';
+import styles from '../../sass/Layout.scss';
 
 export default class Layout extends React.Component{
   render(){
     return (
-      <div id="container">
+      <div className={styles.container}>
         <Header />
-        <div id="mainContent">
-          <div id="left">
+        <div className={styles.mainContent}>
+          <div className={styles.left}>
             <DropDownForm />
           </div>
-          <div id="right">
+          <div className={styles.right}>
             <CampaignTable />
           </div>
         </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CampaignItem from './CampaignItem';
 import { saveCampaigns,syncCampaignWithAPI,setErrorMessage } from '../actions/actions';
+import styles from '../../sass/CampaignTable.scss';
 
 @connect((store) =>{
   return {
@@ -41,23 +42,33 @@ export default class CampaignTable extends React.Component{
       return (<div className="blank"></div>);
     
     return (
-      <form id="campaignForm" onSubmit={this.handleSubmit}>
-        <table>
+      <form className={styles.campaignForm} onSubmit={this.handleSubmit}>
+        <table className={styles.table}>
           <thead>
-            <tr id="campaignHead">
-              <th></th>
-              <th><label className="headName">Campaign Name</label></th>
-              <th><label className="headStatus">Status</label></th>
-              <th><label className="headBudget">Budget</label></th>
-              <th><label className="headStart">Start Date</label></th>
-              <th><label className="headEnd">End Date</label></th>
+            <tr className={styles.campaignHead}>
+              <th className={styles.th}></th>
+              <th className={styles.th}>
+                <label className={styles.headName}>Campaign Name</label>
+              </th>
+              <th className={styles.th}>
+                <label className={styles.headStatus}>Status</label>
+              </th>
+              <th className={styles.th}>
+                <label className={styles.headBudget}>Budget</label>
+              </th>
+              <th className={styles.th}>
+                <label className={styles.headStart}>Start Date</label>
+              </th>
+              <th className={styles.th}>
+                <label className={styles.headEnd}>End Date</label>
+              </th>
             </tr>
           </thead>
           <tbody>
             {this.renderListItems()}
           </tbody>
         </table>
-        <input type="submit" value="Save" className="btn" />
+        <input type="submit" value="Save" className={styles.btn} />
       </form>
     );
   }

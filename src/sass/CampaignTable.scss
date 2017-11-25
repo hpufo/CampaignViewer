@@ -1,15 +1,16 @@
 $blackBorder: 1px solid black;
+$buttonColor: #2B78E4;
 $thColor: #CCCCCC;
 $trColor: #EEEEEE;
 
-table{
+.table{
   width: 100%;
   border: $blackBorder;
   border-collapse: collapse;
   margin-bottom: 1%;
   padding-bottom: 7px;
 }
-th, td{
+.th{
   width: 16%;
   text-align: center;
   &:first-child{
@@ -17,6 +18,18 @@ th, td{
     padding-left: 5px;
   }
 }
-#campaignHead{
+.campaignHead{
   background-color: $thColor;
+}
+.btn{
+  color: white;
+  padding: 6px;
+  float: right;
+  min-width: 90px;
+  border: $blackBorder;
+  background-color: $buttonColor;
+  border:{
+    style: none;
+    radius: 5px;
+  };
 }

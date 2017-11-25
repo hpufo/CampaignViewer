@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getAdvertiserCampaigns } from '../actions/actions';
 import AgencyDropDown from './AgencyDropDown';
 import AdvertiserDropDown from './AdvertiserDropDown';
+import styles from "../../sass/DropdownForm.scss";
 
 @connect((store) =>{
   return {
@@ -18,10 +19,10 @@ export default class DropDownForm extends React.Component{
   
   render(){
     return (
-      <form id="DropDownForm" onSubmit={this.handleSubmit}>
+      <form className="DropDownForm" onSubmit={this.handleSubmit}>
         <AgencyDropDown />
         <AdvertiserDropDown />
-        <input type="submit" value="Get Campaigns" className="btn" />
+        <input type="submit" value="Get Campaigns" className={styles.btn} />
       </form>
     );
   }

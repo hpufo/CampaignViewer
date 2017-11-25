@@ -1,0 +1,15 @@
+$buttonColor: #2B78E4;
+$blackBorder: 1px solid black;
+
+.btn{
+  color: white;
+  padding: 6px;
+  float: right;
+  min-width: 90px;
+  border: $blackBorder;
+  background-color: $buttonColor;
+  border:{
+    style: none;
+    radius: 5px;
+  };
+}

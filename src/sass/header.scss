@@ -11,18 +11,18 @@ $headerColor: #DDDDDD;
   }
 }
 
-#header{
+.header{
   background-color: $headerColor;
   text-align: center;
   height: 10%;
   min-height: 57px;
   max-height: 62px;
 }
-#appName{
+.appName{
   font-weight: 500;
   height: 50%;
 }
-#bar{
+.bar{
   height: 50%;
   display: flex;
   flex-direction: row;
@@ -34,14 +34,14 @@ $headerColor: #DDDDDD;
     bottom: $border;    
   };
 }
-#nav{
+.nav{
   display: flex;
   flex-basis : 6%;
   flex-direction: row;
   justify-content: space-around;
   margin-top: 2px;
 }
-#search{
+.search{
   flex-basis: 88%;
   margin-top: 1px;
   input{

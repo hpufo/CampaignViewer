@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { resetStatus } from '../actions/actions';
+import styles from '../../sass/Dialog.scss';
 
 @connect((store) =>{
   return {
@@ -16,10 +17,10 @@ export default class Dialog extends React.Component{
   render(){
     if(this.props.status){
       return (
-        <div id="dialog">
+        <div className={styles.dialog}>
           <h2>{this.props.status}!</h2>
           <label>{this.props.message}</label>
-          <input type="button" id="dialogBtn" value="Ok" onClick={this.handleClick} />
+          <input type="button" className={styles.dialogBtn} value="Ok" onClick={this.handleClick} />
         </div>
       );
     }

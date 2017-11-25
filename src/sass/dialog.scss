@@ -1,6 +1,6 @@
 $blackBorder: 1px solid black;
 
-#dialog{
+.dialog{
   position: absolute;
   top: 30%;
   right: 35%;
@@ -15,7 +15,7 @@ $blackBorder: 1px solid black;
   text-align: center;
   background-color: white;
 }
-#dialogBtn{
+.dialogBtn{
   width: 20%;
   color: black;
   border: $blackBorder;

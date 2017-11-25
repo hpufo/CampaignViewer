@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { advertiserSelected } from '../actions/actions';
+import styles from '../../sass/Dropdown.scss';
 
 @connect((store) =>{
   return {
@@ -27,9 +28,9 @@ export default class AdvertiserDropDown extends React.Component{
   
   render(){
     return (
-      <div className="dropDownRow">
+      <div className={styles.dropDownRow}>
         <label>Advertiser</label>
-        <select name="advertisers" onChange={this.handleChange}>
+        <select className={styles.select} name="advertisers" onChange={this.handleChange}>
           {this.renderOptions()}
         </select>
       </div>

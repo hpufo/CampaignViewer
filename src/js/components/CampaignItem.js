@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Datetime from 'react-datetime';
 import moment from 'moment';
 import { campaignNameChange,campaignStatusChange,campaignBudgetChange,campaignStartChange,campaignEndChange,campaignCheckboxChange,setErrorMessage } from '../actions/actions';
+import styles from '../../sass/CampaignItem.scss';
 
 @connect((store, ownProps) =>{
   return {
@@ -61,46 +62,46 @@ export default class CampaignItem extends React.Component{
     const {checkbox, name, status, budget, start_date, end_date} = this.props.campaign;
     
     return (
-      <tr className="campaignItem">
-        <td>
+      <tr className={styles.campaignItem}>
+        <td className={styles.td}>
           <input type="checkbox" checked={checkbox} onChange={this.handleCheckBox} />
         </td>
-        <td>
+        <td className={styles.td}>
           <input 
             type="text" 
-            className="name" 
+            className={styles.name} 
             value={name} 
             onChange={this.handleNameChange} 
           />
         </td>
-        <td>
-          <select className="status" value={status} onChange={this.handleStatusChange} >
+        <td className={styles.td}>
+          <select className={styles.status} value={status} onChange={this.handleStatusChange} >
             <option value={true}>Active</option>
             <option value={false}>Inactive</option>
           </select>
         </td>
-        <td>
+        <td className={styles.td}>
           <input type="text" 
-            className="budget"
+            className={styles.budget}
             value={`$${budget}`} 
             onChange={this.handleBudgetChange} 
           />
         </td>
-        <td>
+        <td className={styles.td}>
           <Datetime 
             value={start_date}
             onChange={this.handleStartChange}
-            className="date"
+            className={styles.date}
             dateFormat="MM/DD/YY"
             timeFormat={false}
             closeOnSelect={true}
           />
         </td>
-        <td>
+        <td className={styles.td}>
           <Datetime 
             value={end_date}
             onChange={this.handleEndChange}
-            className="date"
+            className={styles.date}
             dateFormat="MM/DD/YY"
             timeFormat={false}
             closeOnSelect={true}

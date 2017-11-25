@@ -1,29 +1,30 @@
 $borderColor: #666666;
 
-#container{
+.container{
+  height: 100%;
   border: 2px solid $borderColor;
   border-radius: 10px;
   overflow: hidden;
   box-sizing: border-box;
 }
 
-#mainContent{
+.mainContent{
   display: flex;
   flex-direction: row;
   padding: 2%;
 }
 @media (max-width: 814px){
-  #mainContent{
+  .mainContent{
     flex-direction: column;
     justify-content: space-between;
   }
 }
-#left{
+.left{
   width: 15%;
   min-width: 233px;
   padding-right: 2%;
 }
-#right{
+.right{
   width: 100%;
   min-width: 533px;
 }
