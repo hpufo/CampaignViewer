@@ -1,4 +1,5 @@
 $blackBorder: 1px solid black;
+$headerColor: #DDDDDD;
 $trColor: #EEEEEE;
 
 @mixin inputText(){
@@ -36,10 +37,23 @@ $trColor: #EEEEEE;
 .status{
   width: 5%;
   min-width: 76px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, $headerColor 50%),
+    linear-gradient(135deg, $headerColor 50%, transparent 50%),
+    linear-gradient(to right, $headerColor, $headerColor);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    100% 0;
+  background-size:
+    0px 0px,
+    0px 0px,
+    1.5em 2.5em;
+  background-repeat: no-repeat;
 }
-.rdt{
+.date{
   display: inline-block;
-  input.form-control{
+  input{
     width: 50%;
     height: 23px;
     min-width: 87px;

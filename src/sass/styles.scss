@@ -2,6 +2,10 @@
   margin: 0;
   padding: 0;
 }
-html, body, #root{
+html, body{
+  height: 100%;
+}
+// :global doesn't hash the passed in rule so it becomes global
+:global(#root){
   height: 100%;
 }
