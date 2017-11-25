@@ -30,6 +30,7 @@ export default function campaignsReducer(state = initialState, action){
         campaign['checkbox'] = null;
         campaign['start_date'] = formatDate(campaign.start_date);
         campaign['end_date'] = formatDate(campaign.end_date);
+        return campaign;
       });
       //Update the state with the filtered obj
       return Object.assign({},state,{

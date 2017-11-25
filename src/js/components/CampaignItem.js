@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Datetime from 'react-datetime';
 import moment from 'moment';
-import { campaignNameChange,campaignStatusChange,campaignBudgetChange,campaignStartChange,campaignEndChange,campaignCheckboxChange,setErrorMessage,syncCampaignWithAPI } from '../actions/actions';
+import { campaignNameChange,campaignStatusChange,campaignBudgetChange,campaignStartChange,campaignEndChange,campaignCheckboxChange,setErrorMessage } from '../actions/actions';
 
 @connect((store, ownProps) =>{
   return {
@@ -25,7 +25,7 @@ export default class CampaignItem extends React.Component{
     //Formating and validation
     let formatedBugdet = event.target.value
     if(formatedBugdet.includes('$')) formatedBugdet = formatedBugdet.substring(1)  //Splices the $ if it is in the string
-    if(formatedBugdet == "") formatedBugdet = 0;                                  //If empty set it to zero
+    if(formatedBugdet === "") formatedBugdet = 0;                                  //If empty set it to zero
     //Throws an error message if the user attempt to enter a non number
     if(isNaN(formatedBugdet)){
       this.props.dispatch(setErrorMessage("Only input a number for a budget"))
@@ -82,7 +82,7 @@ export default class CampaignItem extends React.Component{
         <td>
           <input type="text" 
             className="budget"
-            value={`\$${budget}`} 
+            value={`$${budget}`} 
             onChange={this.handleBudgetChange} 
           />
         </td>
