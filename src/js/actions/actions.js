@@ -2,7 +2,7 @@
 */
 import axios from 'axios';
 
-const url = "http://challenge.mediamath.com/api/";
+const url = "https://challenge.mediamath.com/api/";
 const api_token = "?api_token=8219812fd484a2a680fb3ac399c009483c9566cb";
 
 /* 

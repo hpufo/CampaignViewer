@@ -1,12 +1,13 @@
 $borderColor: #666666;
 $border: 1px solid $borderColor;
 $headerColor: #DDDDDD;
+$spriteURL: url("../images/sprite.png");
 
 @mixin icon($y:0px){
   height: 18px;
   width: 19px;
   background:{
-    image: url("/images/sprite.png");
+    image: $spriteURL;
     position: 0px $y;
   }
 }
@@ -50,7 +51,7 @@ $headerColor: #DDDDDD;
     padding-left: 20px;
     box-sizing: border-box;
     background:{
-      image: url("/images/sprite.png");
+      image: $spriteURL;
       repeat: no-repeat;
       position:{
         x: 0px;

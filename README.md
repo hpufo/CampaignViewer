@@ -1,7 +1,7 @@
 # CampaignViewer
 Programming challenge for MediaMath. I created a Campaign Viewer using their sample API. To do this I used React/Redux.
 
-Technologies used: React, Redux, Redux-thunk, SCSS, Webpack, Axios
+Technologies used: React, Redux, Redux-thunk, Modular SCSS, Webpack, Axios, React-Datetime
 
 Usefull commands:
 
