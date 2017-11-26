@@ -2,9 +2,9 @@ const initialState = {
   currentAgency: null,
   advertiserSelected: null,
   advertisers: [{
-    _id: null,
-    agency_id: null,
-    name: "Choose an advertiser..."
+    _id: 0,
+    agency_id: 0,
+    name: "Choose an agency first"
   }]
 }
 /*
@@ -28,6 +28,19 @@ export default function advertisersReducer(state = initialState, action){
           ...state.advertisers,
           ...obj
         ]
+      })
+    }
+    case "CHANGE_ADVERTISERS_MESSAGE":{
+      return Object.assign({},state,{
+        advertisers: state.advertisers.map((advertisers) => {
+          if(advertisers._id === 0){
+            //Returning an advertisers object with the updated name
+            return Object.assign({}, advertisers, {
+              name: action.payload
+            })
+          }
+          return advertisers //Return for map
+        })
       })
     }
     //Sets the currentAgency

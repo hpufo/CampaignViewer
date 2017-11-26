@@ -13,7 +13,7 @@ export default class AdvertiserDropDown extends React.Component{
   
   renderOptions(){
     return this.props.advertisers.filter((item) => {                            //filter out the advertisers with the selected agency
-      if(item.agency_id === null)                                                //Always include the "Choose..." option  
+      if(item.agency_id === 0)                                                //Always include the "Choose..." option  
         return true
       else                                                                      //Return item if item contains the currently selected agency
         return item.agency_id === this.props.currentAgency

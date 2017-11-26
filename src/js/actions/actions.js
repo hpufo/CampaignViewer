@@ -13,9 +13,11 @@ export function getAgencies(){
     axios.get(`${url}agencies${api_token}`)                                     //Building the url
     .then((response) => {                                                       //When I recieve a response
       dispatch({type: "RECEIVE_AGENCIES", payload: response.data.agencies})     //Dispatech the agencies from the response
+      dispatch({type: "CHANGE_AGENCY_MESSAGE", payload: "Choose an agency..."}) //Dispatch an action to update the message
     })
     .catch((error) => {                                                         //On error    
       dispatch({type: "STATUS_MESSAGE", payload: {status: "Error", message: "Something went wrong with the API call :("}})  //Dispatch a general error message
+      dispatch({type: "CHANGE_AGENCY_MESSAGE", payload: "Nothing to select"}) //Dispatch an action to update the message
     })
   }
 }
@@ -28,9 +30,11 @@ export function getAdvertisers(agencyID){
     .then((response) => {                                                         //When the response is recieved
       dispatch({type: "CURRENT_AGENCY", payload: agencyID});                      //Dispatch the current agency
       dispatch({type: "RECIEVE_ADVERTISERS",payload: response.data.advertisers})  //And the advertisers from the response
+      dispatch({type: "CHANGE_ADVERTISERS_MESSAGE", payload: "Choose an advertiser..."})  
     })
     .catch((error) => {                                                           //Same as above error
       dispatch({type: "STATUS_MESSAGE", payload: {status: "Error", message: "Something went wrong with the API call :("}})
+      dispatch({type: "CHANGE_ADVERTISERS_MESSAGE", payload: "Nothing to select"}) //Dispatch an action to update the message
     })
   }
 }

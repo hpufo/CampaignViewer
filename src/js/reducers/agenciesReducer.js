@@ -1,7 +1,7 @@
 const initialState = {
   agencies:[{
-    _id: null,
-    name: "Choose an agency..."
+    _id: 0,
+    name: "Loading..."
   }]
 };
 /*
@@ -16,6 +16,19 @@ export default function agenciesReducer(state = initialState, action){
           ...state.agencies,
           ...action.payload           //Object spread operator thanks to babel plugin
         ]
+      })
+    }
+    case "CHANGE_AGENCY_MESSAGE":{
+      return Object.assign({},state,{
+        agencies: state.agencies.map((agency) => {
+          if(agency._id === 0){
+            //Returning an agency object with the updated name
+            return Object.assign({}, agency, {
+              name: action.payload
+            })
+          }
+          return agency //Return for map
+        })
       })
     }
     default:
