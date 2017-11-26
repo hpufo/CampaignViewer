@@ -1,15 +1,5 @@
-$buttonColor: #2B78E4;
-$blackBorder: 1px solid black;
-
 .btn{
-  color: white;
-  padding: 6px;
-  float: right;
-  min-width: 90px;
-  border: $blackBorder;
-  background-color: $buttonColor;
-  border:{
-    style: none;
-    radius: 5px;
-  };
+  // Composes: Is from CSS Modules, it allows me to use styles from other files
+  // use: composes: className from "path";
+  composes: btn from './styles.scss';
 }
