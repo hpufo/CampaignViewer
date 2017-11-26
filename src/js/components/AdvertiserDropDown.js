@@ -1,14 +1,6 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { advertiserSelected } from '../actions/actions';
 import styles from '../../sass/Dropdown.scss';
 
-@connect((store) =>{
-  return {
-    currentAgency: store.advertisers.currentAgency,
-    advertisers: store.advertisers.advertisers
-  };
-})
 export default class AdvertiserDropDown extends React.Component{  
   
   renderOptions(){
@@ -22,15 +14,11 @@ export default class AdvertiserDropDown extends React.Component{
     });
   }
   
-  handleChange = (event) => {
-    this.props.dispatch(advertiserSelected(event.target.value));
-  }
-  
   render(){
     return (
       <div className={styles.dropDownRow}>
         <label>Advertiser</label>
-        <select className={styles.select} name="advertisers" onChange={this.handleChange}>
+        <select className={styles.select} name="advertisers" onChange={this.props.handleChange}>
           {this.renderOptions()}
         </select>
       </div>

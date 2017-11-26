@@ -1,20 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { getAgencies,getAdvertisers } from '../actions/actions';
 import styles from '../../sass/Dropdown.scss';
 
-@connect((store) =>{
-  return {
-    agencies: store.agencies.agencies
-  };
-})
 export default class AgencyDropDown extends React.Component{  
   //Makes the inital api call
   componentWillMount(){
-    this.props.dispatch(getAgencies());
-  }
-  handleSelect = (event) => {
-    this.props.dispatch(getAdvertisers(event.target.value));
+    this.props.callAPI();
   }
   renderOptions(){
     return this.props.agencies.map((item, i)=>{
@@ -26,7 +16,7 @@ export default class AgencyDropDown extends React.Component{
     return (
       <div className={styles.dropDownRow}>
         <label>Agency</label>
-        <select className={styles.select} name="agencies" onChange={this.handleSelect}>
+        <select className={styles.select} name="agencies" onChange={this.props.handleSelect}>
           {this.renderOptions()}
         </select>
       </div>
