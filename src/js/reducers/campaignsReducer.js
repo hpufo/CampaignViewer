@@ -27,7 +27,7 @@ export default function campaignsReducer(state = initialState, action){
       })
       //Make a few modifications to the campaign obj
       obj.map((campaign) => {
-        campaign['checkbox'] = null;
+        campaign['checkbox'] = false;
         campaign['start_date'] = formatDate(campaign.start_date);
         campaign['end_date'] = formatDate(campaign.end_date);
         return campaign;
