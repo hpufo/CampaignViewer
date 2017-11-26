@@ -1,3 +1,28 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  height: 100%; }
+
+#root {
+  height: 100%; }
+
+.styles__select___2lqfs {
+  background-image: linear-gradient(45deg, transparent 50%, #DDDDDD 50%), linear-gradient(135deg, #DDDDDD 50%, transparent 50%), linear-gradient(to right, #DDDDDD, #DDDDDD);
+  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
+  background-size: 0px 0px, 0px 0px, 1.5em 2.5em;
+  background-repeat: no-repeat; }
+
+.styles__btn___2aM2N {
+  color: white;
+  padding: 6px;
+  float: right;
+  min-width: 90px;
+  border: 1px solid black;
+  background-color: #2B78E4;
+  border-style: none;
+  border-radius: 5px; }
 .Dropdown__dropDownRow___2bTF0 {
   margin-bottom: 5%; }
   .Dropdown__dropDownRow___2bTF0 label {
@@ -7,20 +32,8 @@
 .Dropdown__dropDownRow___2bTF0 .Dropdown__select___3331Y {
   width: 70%; }
 
-.Dropdown__select___3331Y {
-  background-image: linear-gradient(45deg, transparent 50%, #DDDDDD 50%), linear-gradient(135deg, #DDDDDD 50%, transparent 50%), linear-gradient(to right, #DDDDDD, #DDDDDD);
-  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
-  background-size: 0px 0px, 0px 0px, 1.5em 2.5em;
-  background-repeat: no-repeat; }
-.DropdownForm__btn___3N0b5 {
-  color: white;
-  padding: 6px;
-  float: right;
-  min-width: 90px;
-  border: 1px solid black;
-  background-color: #2B78E4;
-  border-style: none;
-  border-radius: 5px; }
+.Dropdown__select___3331Y { }
+.DropdownForm__btn___3N0b5 { }
 .CampaignItem__td___h1CQu {
   width: 16%;
   text-align: center; }
@@ -49,11 +62,7 @@
 
 .CampaignItem__status___3_qru {
   width: 5%;
-  min-width: 76px;
-  background-image: linear-gradient(45deg, transparent 50%, #DDDDDD 50%), linear-gradient(135deg, #DDDDDD 50%, transparent 50%), linear-gradient(to right, #DDDDDD, #DDDDDD);
-  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
-  background-size: 0px 0px, 0px 0px, 1.5em 2.5em;
-  background-repeat: no-repeat; }
+  min-width: 76px; }
 
 .CampaignItem__date___2vlPm {
   display: inline-block; }
@@ -62,7 +71,7 @@
     height: 23px;
     min-width: 87px;
     border: 1px solid black;
-    background-image: url("/images/cal.png");
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAIAAABvFaqvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAZdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuMTZEaa/1AAAAlklEQVQ4T+2S0Q2AIBBDndZZmMUVWOFWYAVn8Jma8xJiIgJ/vg9twJb0ZDGzrRtCFl5rN4RMCEopoZvAIi/6DkLsAZ8dIufsWgJKKTzd+xgU1+PJEqBQacT8oK5q2hPuIaU5iO+kwdfp1VxtWNCwav+MxJcZXXe0gl33vqp2+SrmB42pxsmnr4X4N++gHoYGxavxGTM7ACoz/15+ackJAAAAAElFTkSuQmCC);
     background-repeat: no-repeat;
     background-position-x: 64px; }
 .CampaignTable__table___ZFmCZ {
@@ -82,15 +91,7 @@
 .CampaignTable__campaignHead___1daZ0 {
   background-color: #CCCCCC; }
 
-.CampaignTable__btn___23SnY {
-  color: white;
-  padding: 6px;
-  float: right;
-  min-width: 90px;
-  border: 1px solid black;
-  background-color: #2B78E4;
-  border-style: none;
-  border-radius: 5px; }
+.CampaignTable__btn___23SnY { }
 .Dialog__dialog___2lJrh {
   position: absolute;
   top: 30%;
@@ -207,14 +208,5 @@
 .Layout__right___24OpT {
   width: 100%;
   min-width: 533px; }
-* {
-  margin: 0;
-  padding: 0; }
 
-html, body {
-  height: 100%; }
-
-#root {
-  height: 100%; }
-
-/*# sourceMappingURL=main.238f3be7.css.map*/
+/*# sourceMappingURL=main.7dc52eb2.css.map*/
