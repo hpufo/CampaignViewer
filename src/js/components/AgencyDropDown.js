@@ -8,10 +8,7 @@ import styles from '../../sass/Dropdown.scss';
 class AgencyDropDown extends React.Component{  
   //Makes the inital api call
   componentDidMount(){
-    this.props.dispatch(getAgencies());
-  }
-  handleSelect = (event) => {
-    this.props.dispatch(getAdvertisers(event.target.value));
+    this.props.loadAgencies();
   }
   renderOptions(){
     return this.props.agencies.map((item, i)=>{
@@ -23,11 +20,17 @@ class AgencyDropDown extends React.Component{
     return (
       <div className={styles.dropDownRow}>
         <label>Agency</label>
-        <select className={styles.select} name="agencies" onChange={this.handleSelect}>
+        <select className={styles.select} name="agencies" onChange={this.props.handleSelect}>
           {this.renderOptions()}
         </select>
       </div>
     );
+  }
+}
+function mapDispatchToProps(dispatch){
+  return{
+    loadAgencies: () => {dispatch(getAgencies())},
+    handleSelect: (event) => {dispatch(getAdvertisers(event.target.value))}
   }
 }
 function mapStateToProps(state){
@@ -35,4 +38,4 @@ function mapStateToProps(state){
     agencies: state.agencies.agencies
   };
 }
-export default connect(mapStateToProps)(AgencyDropDown);
+export default connect(mapStateToProps,mapDispatchToProps)(AgencyDropDown);

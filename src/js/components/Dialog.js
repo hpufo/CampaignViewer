@@ -4,17 +4,13 @@ import { resetStatus } from '../actions/messageActions';
 import styles from '../../sass/Dialog.scss';
 
 class Dialog extends React.Component{
-  handleClick = () => {
-    this.props.dispatch(resetStatus());
-  }
-  
   render(){
     if(this.props.status){
       return (
         <div className={styles.dialog}>
           <h2>{this.props.status}!</h2>
           <label>{this.props.message}</label>
-          <input type="button" className={styles.dialogBtn} value="Ok" onClick={this.handleClick} />
+          <input type="button" className={styles.dialogBtn} value="Ok" onClick={this.props.handleClick} />
         </div>
       );
     }
@@ -23,11 +19,15 @@ class Dialog extends React.Component{
     }
   }
 }
-
+function mapDispatchToProps(dispatch){
+  return{
+    handleClick: () => dispatch(resetStatus())
+  }
+}
 function mapStateToProps(state){
   return {
     status: state.message.status,
     message: state.message.message
   };
 }
-export default connect(mapStateToProps)(Dialog);
+export default connect(mapStateToProps,mapDispatchToProps)(Dialog);
