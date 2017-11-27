@@ -3,13 +3,7 @@ import { connect } from 'react-redux';
 import { advertiserSelected } from '../actions/actions';
 import styles from '../../sass/Dropdown.scss';
 
-@connect((store) =>{
-  return {
-    currentAgency: store.advertisers.currentAgency,
-    advertisers: store.advertisers.advertisers
-  };
-})
-export default class AdvertiserDropDown extends React.Component{  
+class AdvertiserDropDown extends React.Component{  
   
   renderOptions(){
     return this.props.advertisers.filter((item) => {                            //filter out the advertisers with the selected agency
@@ -37,3 +31,11 @@ export default class AdvertiserDropDown extends React.Component{
     );
   }
 }
+
+function mapStateToProps(store){
+  return {
+    currentAgency: store.advertisers.currentAgency,
+    advertisers: store.advertisers.advertisers
+  };
+}
+export default connect(mapStateToProps)(AdvertiserDropDown);

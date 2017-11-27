@@ -4,13 +4,7 @@ import CampaignItem from './CampaignItem';
 import { saveCampaigns,syncCampaignWithAPI,setErrorMessage } from '../actions/actions';
 import styles from '../../sass/CampaignTable.scss';
 
-@connect((store) =>{
-  return {
-    currentAdvertiser: store.campaigns.currentAdvertiser,
-    campaigns: store.campaigns.campaigns
-  };
-})
-export default class CampaignTable extends React.Component{
+class CampaignTable extends React.Component{
   handleSubmit = (event) => {
     event.preventDefault();
     //Filter out the objs from the state to only get objs that are checked
@@ -73,3 +67,11 @@ export default class CampaignTable extends React.Component{
     );
   }
 }
+
+function mapStateToProps(store){
+  return {
+    currentAdvertiser: store.campaigns.currentAdvertiser,
+    campaigns: store.campaigns.campaigns
+  };
+}
+export default connect(mapStateToProps)(CampaignTable);

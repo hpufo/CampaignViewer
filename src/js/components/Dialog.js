@@ -3,13 +3,7 @@ import { connect } from 'react-redux';
 import { resetStatus } from '../actions/actions';
 import styles from '../../sass/Dialog.scss';
 
-@connect((store) =>{
-  return {
-    status: store.message.status,
-    message: store.message.message
-  };
-})
-export default class Dialog extends React.Component{
+class Dialog extends React.Component{
   handleClick = () => {
     this.props.dispatch(resetStatus());
   }
@@ -29,3 +23,11 @@ export default class Dialog extends React.Component{
     }
   }
 }
+
+function mapStateToProps(store){
+  return {
+    status: store.message.status,
+    message: store.message.message
+  };
+}
+export default connect(mapStateToProps)(Dialog);

@@ -5,12 +5,7 @@ import moment from 'moment';
 import { campaignNameChange,campaignStatusChange,campaignBudgetChange,campaignStartChange,campaignEndChange,campaignCheckboxChange,setErrorMessage } from '../actions/actions';
 import styles from '../../sass/CampaignItem.scss';
 
-@connect((store, ownProps) =>{
-  return {
-    campaign: store.campaigns.campaigns[ownProps.index]
-  };
-})
-export default class CampaignItem extends React.Component{  
+class CampaignItem extends React.Component{  
   handleCheckBox = (event) => {
     //value will be either ture or false
     let value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
@@ -111,3 +106,10 @@ export default class CampaignItem extends React.Component{
     );
   }
 }
+
+function mapStateToProps(store, ownProps){
+  return {
+    campaign: store.campaigns.campaigns[ownProps.index]
+  };
+}
+export default connect(mapStateToProps)(CampaignItem);

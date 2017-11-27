@@ -5,12 +5,7 @@ import AgencyDropDownContainer from '../containers/AgencyDropDownContainer';
 import AdvertiserDropDownContainer from '../containers/AdvertiserDropDownContainer';
 import styles from "../../sass/DropdownForm.scss";
 
-@connect((store) =>{
-  return {
-    advertiserSelected: store.advertisers.advertiserSelected
-  };
-})
-export default class DropDownForm extends React.Component{
+class DropDownForm extends React.Component{
   handleSubmit = (event) => {
     event.preventDefault();
     //Make the call to the api to get the advertiser's campaigns
@@ -27,3 +22,10 @@ export default class DropDownForm extends React.Component{
     );
   }
 }
+
+function mapStateToProps(store){
+  return {
+    advertiserSelected: store.advertisers.advertiserSelected
+  };
+}
+export default connect(mapStateToProps)(DropDownForm);

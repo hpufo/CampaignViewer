@@ -4,12 +4,7 @@ import { connect } from 'react-redux';
 import { getAgencies,getAdvertisers } from '../actions/actions';
 import styles from '../../sass/Dropdown.scss';
 
-@connect((store) =>{
-  return {
-    agencies: store.agencies.agencies
-  };
-})
-export default class AgencyDropDown extends React.Component{  
+class AgencyDropDown extends React.Component{  
   //Makes the inital api call
   componentWillMount(){
     this.props.dispatch(getAgencies());
@@ -34,3 +29,9 @@ export default class AgencyDropDown extends React.Component{
     );
   }
 }
+function mapStateToProps(store){
+  return {
+    agencies: store.agencies.agencies
+  };
+}
+export default connect(mapStateToProps)(AgencyDropDown);
