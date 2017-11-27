@@ -1,12 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { advertiserSelected } from '../actions/actions';
 import styles from '../../sass/Dropdown.scss';
 
+@connect((store) =>{
+  return {
+    currentAgency: store.advertisers.currentAgency,
+    advertisers: store.advertisers.advertisers
+  };
+})
 export default class AdvertiserDropDown extends React.Component{  
   
   renderOptions(){
     return this.props.advertisers.filter((item) => {                            //filter out the advertisers with the selected agency
-      if(item.agency_id === 0)                                                 //Always include the "Choose..." option  
+      if(item.agency_id === 0)                                                //Always include the "Choose..." option  
         return true
       else                                                                      //Return item if item contains the currently selected agency
         return item.agency_id === this.props.currentAgency
@@ -15,20 +22,18 @@ export default class AdvertiserDropDown extends React.Component{
     });
   }
   
+  handleChange = (event) => {
+    this.props.dispatch(advertiserSelected(event.target.value));
+  }
+  
   render(){
     return (
       <div className={styles.dropDownRow}>
         <label>Advertiser</label>
-        <select className={styles.select} name="advertisers" onChange={this.props.handleChange}>
+        <select className={styles.select} name="advertisers" onChange={this.handleChange}>
           {this.renderOptions()}
         </select>
       </div>
     );
   }
-}
-
-AdvertiserDropDown.PropTypes = {
-  advertisers: PropTypes.array.isRequired,
-  currentAgency: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired
 }

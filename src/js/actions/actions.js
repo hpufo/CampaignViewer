@@ -5,6 +5,9 @@ import axios from 'axios';
 const url = "https://challenge.mediamath.com/api/";
 const api_token = "?api_token=8219812fd484a2a680fb3ac399c009483c9566cb";
 
+/*
+* Constants
+*/
 export const ACTIONS = {
   RECEIVE_AGENCIES: "RECEIVE_AGENCIES",
   CHANGE_AGENCY_MESSAGE: "CHANGE_AGENCY_MESSAGE",
@@ -23,9 +26,11 @@ export const ACTIONS = {
   CAMPAIGN_CHECKBOX_CHANGE: "CAMPAIGN_CHECKBOX_CHANGE"
 }
 
-/* 
-* Gets the Agencies from the API
+/*
+* Thunks
 */
+
+/* Gets the Agencies from the API */ 
 export function getAgencies(){
   return function(dispatch){
     axios.get(`${url}agencies${api_token}`)                                     //Building the url
@@ -39,9 +44,7 @@ export function getAgencies(){
     })
   }
 }
-/*
-* Gets the Advertisers for an agency from the API
-*/
+/* Gets the Advertisers for an agency from the API */
 export function getAdvertisers(agencyID){
   return function(dispatch){
     axios.get(`${url}advertisers${api_token}&agency_id=${agencyID}`)              //Build the url
@@ -56,9 +59,7 @@ export function getAdvertisers(agencyID){
     })
   }
 }
-/*
-* Gets the Campaigns for a advertiser from the API
-*/
+/* Gets the Campaigns for a advertiser from the API */
 export function getAdvertiserCampaigns(advertiserID){
   return function(dispatch){
     axios.get(`${url}campaigns${api_token}&advertiser_id=${advertiserID}`)      //Same
@@ -70,9 +71,7 @@ export function getAdvertiserCampaigns(advertiserID){
     })
   }
 }
-/*
-* Saves all the campaigns in the object
-*/
+/* Saves all the campaigns in the object */
 export function saveCampaigns(objs){
   return function(dispatch){
     //For each element in objs array, create a promise and store it in the promises array
@@ -86,9 +85,7 @@ export function saveCampaigns(objs){
     })
   }
 }
-/*
-* Syncs the campaign state with the data from the api
-*/
+/* Syncs the campaign state with the data from the api */
 export function syncCampaignWithAPI(ids){
   return function(dispatch){
     //Array containing all the promises
@@ -104,56 +101,41 @@ export function syncCampaignWithAPI(ids){
   }
 }
 /*
-* Resets the message state
+* Action creators
 */
+/* Resets the message state */
 export function resetStatus(){
   return {type: ACTIONS.STATUS_MESSAGE, payload: {status: null, message: null}}
 }
-/*
-* Custom message error
-*/
+/* Custom message error */
 export function setErrorMessage(message){
   return {type: ACTIONS.STATUS_MESSAGE, payload: {status: "Error", message: message}}
 }
-/*
-* Dispatches the action in the method body
-*/
+/* Dispatches the action in the method body */
 export function advertiserSelected(advertiserID){
   return {type: ACTIONS.ADVERTISER_SELECTED, payload: advertiserID}
 }
-/*
-* Dispatches the action in the method body
-*/
+/* Dispatches the action in the method body */
 export function campaignNameChange(name, index){
   return {type: ACTIONS.CAMPAIGN_NAME_CHANGE, payload: name, index: index}
 }
-/*
-* Dispatches the action in the method body
-*/
+/* Dispatches the action in the method body */
 export function campaignStatusChange(bool, index){
   return {type: ACTIONS.CAMPAIGN_STATUS_CHANGE, payload: bool, index: index}
 }
-/*
-* Dispatches the action in the method body
-*/
+/* Dispatches the action in the method body */
 export function campaignBudgetChange(budget, index){
   return {type: ACTIONS.CAMPAIGN_BUDGET_CHANGE, payload: budget, index: index}
 }
-/*
-* Dispatches the action in the method body
-*/
+/* Dispatches the action in the method body */
 export function campaignStartChange(start, index){
   return {type: ACTIONS.CAMPAIGN_START_CHANGE, payload: start, index: index}
 }
-/*
-* Dispatches the action in the method body
-*/
+/* Dispatches the action in the method body */
 export function campaignEndChange(end, index){
   return {type: ACTIONS.CAMPAIGN_END_CHANGE, payload: end, index: index}
 }
-/*
-* Dispatches the action in the method body
-*/
+/* Dispatches the action in the method body */
 export function campaignCheckboxChange(value, index){
   return {type: ACTIONS.CAMPAIGN_CHECKBOX_CHANGE, payload: value, index: index}
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import DropDownForm from './DropDownForm';
-import CampaignTableContainer from '../containers/CampaignTableContainer';
-import DialogContainer from '../containers/DialogContainer';
+import CampaignTable from './CampaignTable';
+import Dialog from './Dialog';
 import Header from './Header';
 import styles from '../../sass/Layout.scss';
 
@@ -15,10 +15,10 @@ export default class Layout extends React.Component{
             <DropDownForm />
           </div>
           <div className={styles.right}>
-            <CampaignTableContainer />
+            <CampaignTable />
           </div>
         </div>
-        <DialogContainer />
+        <Dialog />
       </div>
     );
   }

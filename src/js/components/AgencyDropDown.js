@@ -1,11 +1,21 @@
+
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { getAgencies,getAdvertisers } from '../actions/actions';
 import styles from '../../sass/Dropdown.scss';
 
+@connect((store) =>{
+  return {
+    agencies: store.agencies.agencies
+  };
+})
 export default class AgencyDropDown extends React.Component{  
-  //Makes the inital call to get agenices
-  componentDidMount(){
-    this.props.getAgencies();
+  //Makes the inital api call
+  componentWillMount(){
+    this.props.dispatch(getAgencies());
+  }
+  handleSelect = (event) => {
+    this.props.dispatch(getAdvertisers(event.target.value));
   }
   renderOptions(){
     return this.props.agencies.map((item, i)=>{
@@ -17,16 +27,10 @@ export default class AgencyDropDown extends React.Component{
     return (
       <div className={styles.dropDownRow}>
         <label>Agency</label>
-        <select className={styles.select} name="agencies" onChange={this.props.handleSelect}>
+        <select className={styles.select} name="agencies" onChange={this.handleSelect}>
           {this.renderOptions()}
         </select>
       </div>
     );
   }
-}
-
-AgencyDropDown.PropTypes = {
-  agencies: PropTypes.array.isRequired,
-  handleSelect: PropTypes.func.isRequired,
-  getAgencies: PropTypes.func.isRequired
 }

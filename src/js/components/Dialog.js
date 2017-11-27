@@ -1,15 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { resetStatus } from '../actions/actions';
 import styles from '../../sass/Dialog.scss';
 
-export default class Dialog extends React.Component{  
+@connect((store) =>{
+  return {
+    status: store.message.status,
+    message: store.message.message
+  };
+})
+export default class Dialog extends React.Component{
+  handleClick = () => {
+    this.props.dispatch(resetStatus());
+  }
+  
   render(){
     if(this.props.status){
       return (
         <div className={styles.dialog}>
           <h2>{this.props.status}!</h2>
           <label>{this.props.message}</label>
-          <input type="button" className={styles.dialogBtn} value="Ok" onClick={this.props.handleClick} />
+          <input type="button" className={styles.dialogBtn} value="Ok" onClick={this.handleClick} />
         </div>
       );
     }
@@ -17,10 +28,4 @@ export default class Dialog extends React.Component{
       return (<div className="blank"></div>);
     }
   }
-}
-
-Dialog.PropTypes = {
-  status: PropTypes.string.isRequired,
-  message: PropTypes.string.isRequired,
-  handleClick: PropTypes.func.isRequired
 }
