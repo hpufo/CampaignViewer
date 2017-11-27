@@ -32,10 +32,10 @@ class AdvertiserDropDown extends React.Component{
   }
 }
 
-function mapStateToProps(store){
+function mapStateToProps(state){
   return {
-    currentAgency: store.advertisers.currentAgency,
-    advertisers: store.advertisers.advertisers
+    currentAgency: state.advertisers.currentAgency,
+    advertisers: state.advertisers.advertisers
   };
 }
 export default connect(mapStateToProps)(AdvertiserDropDown);

@@ -30,9 +30,9 @@ class AgencyDropDown extends React.Component{
     );
   }
 }
-function mapStateToProps(store){
+function mapStateToProps(state){
   return {
-    agencies: store.agencies.agencies
+    agencies: state.agencies.agencies
   };
 }
 export default connect(mapStateToProps)(AgencyDropDown);

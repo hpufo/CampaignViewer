@@ -24,10 +24,10 @@ class Dialog extends React.Component{
   }
 }
 
-function mapStateToProps(store){
+function mapStateToProps(state){
   return {
-    status: store.message.status,
-    message: store.message.message
+    status: state.message.status,
+    message: state.message.message
   };
 }
 export default connect(mapStateToProps)(Dialog);

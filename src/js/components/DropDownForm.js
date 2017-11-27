@@ -23,9 +23,9 @@ class DropDownForm extends React.Component{
   }
 }
 
-function mapStateToProps(store){
+function mapStateToProps(state){
   return {
-    advertiserSelected: store.advertisers.advertiserSelected
+    advertiserSelected: state.advertisers.advertiserSelected
   };
 }
 export default connect(mapStateToProps)(DropDownForm);

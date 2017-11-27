@@ -108,9 +108,9 @@ class CampaignItem extends React.Component{
   }
 }
 
-function mapStateToProps(store, ownProps){
+function mapStateToProps(state, ownProps){
   return {
-    campaign: store.campaigns.campaigns[ownProps.index]
+    campaign: state.campaigns.campaigns[ownProps.index]
   };
 }
 export default connect(mapStateToProps)(CampaignItem);

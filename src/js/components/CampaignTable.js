@@ -69,10 +69,10 @@ class CampaignTable extends React.Component{
   }
 }
 
-function mapStateToProps(store){
+function mapStateToProps(state){
   return {
-    currentAdvertiser: store.campaigns.currentAdvertiser,
-    campaigns: store.campaigns.campaigns
+    currentAdvertiser: state.campaigns.currentAdvertiser,
+    campaigns: state.campaigns.campaigns
   };
 }
 export default connect(mapStateToProps)(CampaignTable);
