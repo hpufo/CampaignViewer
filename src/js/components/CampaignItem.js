@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Datetime from 'react-datetime';
 import styles from '../../sass/CampaignItem.scss';
 
@@ -56,4 +57,14 @@ export default class CampaignItem extends React.Component{
       </tr>
     );
   }
+}
+
+CampaignItem.PropTypes = {
+  campaign: PropTypes.array.isRequired,
+  handleCheckBox: PropTypes.func.isRequired,
+  handleEndChange: PropTypes.func.isRequired,
+  handleNameChange: PropTypes.func.isRequired,
+  handleStartChange: PropTypes.func.isRequired,
+  handleStatusChange: PropTypes.func.isRequired,
+  handleBudgetChange: PropTypes.func.isRequired
 }

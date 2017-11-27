@@ -1,4 +1,5 @@
 import moment from 'moment';
+import {ACTIONS} from '../actions/actions';
 
 const initialState = {
   currentAdvertiser: null,
@@ -18,7 +19,7 @@ function formatDate(date){
 export default function campaignsReducer(state = initialState, action){
   switch(action.type){
     //Adds campaigns to the state with data from the api
-    case "RECIEVE_CAMPAIGNS":{
+    case ACTIONS.RECIEVE_CAMPAIGNS:{
       //Get the ids already in the state
       const ids = state.campaigns.map((item) => item._id)
       //filter them out
@@ -41,11 +42,11 @@ export default function campaignsReducer(state = initialState, action){
       })
     }
     //Sets current advertiser
-    case "ADVERTISER_SELECTED":{
+    case ACTIONS.ADVERTISER_SELECTED:{
       return {...state, currentAdvertiser: action.payload}
     }
     //Changes the campaign name
-    case "CAMPAIGN_NAME_CHANGE":{
+    case ACTIONS.CAMPAIGN_NAME_CHANGE:{
       return Object.assign({}, state,{
         campaigns: state.campaigns.map((campaign,index) => {
           if(index === action.index){
@@ -58,7 +59,7 @@ export default function campaignsReducer(state = initialState, action){
       })
     }
     //Changes the campaign status
-    case "CAMPAIGN_STATUS_CHANGE":{
+    case ACTIONS.CAMPAIGN_STATUS_CHANGE:{
       return Object.assign({}, state,{
         campaigns: state.campaigns.map((campaign,index) => {
           if(index === action.index){
@@ -71,7 +72,7 @@ export default function campaignsReducer(state = initialState, action){
       })
     }
     //Changes the campaign budget
-    case "CAMPAIGN_BUDGET_CHANGE":{
+    case ACTIONS.CAMPAIGN_BUDGET_CHANGE:{
       return Object.assign({}, state,{
         campaigns: state.campaigns.map((campaign,index) => {
           if(index === action.index){
@@ -84,7 +85,7 @@ export default function campaignsReducer(state = initialState, action){
       })
     }
     //Changes the campaign  start time
-    case "CAMPAIGN_START_CHANGE":{
+    case ACTIONS.CAMPAIGN_START_CHANGE:{
       return Object.assign({}, state,{
         campaigns: state.campaigns.map((campaign,index) => {
           if(index === action.index){
@@ -97,7 +98,7 @@ export default function campaignsReducer(state = initialState, action){
       })
     }
     //Changes the campaign  end time
-    case "CAMPAIGN_END_CHANGE":{
+    case ACTIONS.CAMPAIGN_END_CHANGE:{
       return Object.assign({}, state,{
         campaigns: state.campaigns.map((campaign,index) => {
           if(index === action.index){
@@ -110,7 +111,7 @@ export default function campaignsReducer(state = initialState, action){
       })
     }
     //Changes the campaign checkbox value
-    case "CAMPAIGN_CHECKBOX_CHANGE":{
+    case ACTIONS.CAMPAIGN_CHECKBOX_CHANGE:{
       return Object.assign({}, state,{
         campaigns: state.campaigns.map((campaign,index) => {
           if(index === action.index){
@@ -123,7 +124,7 @@ export default function campaignsReducer(state = initialState, action){
       })
     }
     //Syncs the state with the data from the api
-    case "SYNC_CAMPAIGN_WITH_API":{
+    case ACTIONS.SYNC_CAMPAIGN_WITH_API:{
       return Object.assign({}, state,{
         campaigns: state.campaigns.map((campaign) => {
           if(campaign._id === action.payload._id){

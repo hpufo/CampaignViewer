@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CampaignItemContainer from '../containers/CampaignItemContainer';
 import styles from '../../sass/CampaignTable.scss';
 
@@ -48,4 +49,10 @@ export default class CampaignTable extends React.Component{
       </form>
     );
   }
+}
+
+CampaignTable.PropTypes = {
+  campaigns: PropTypes.array.isRequired,
+  currentAdvertiser: PropTypes.string.isRequired,
+  handleSubmit: PropTypes.func.isRequired
 }

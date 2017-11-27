@@ -9,6 +9,7 @@ import AgencyDropDown from '../components/AgencyDropDown';
   };
 })
 export default class AgencyDropDownContainer extends React.Component{  
+  //Get the agencies from a API
   callAPI = () => {
     this.props.dispatch(getAgencies());
   }
@@ -19,7 +20,7 @@ export default class AgencyDropDownContainer extends React.Component{
     return <AgencyDropDown 
       agencies={this.props.agencies}
       handleSelect={this.handleSelect}
-      callAPI={this.callAPI}
+      getAgencies={this.callAPI}
     />;
   }
 }

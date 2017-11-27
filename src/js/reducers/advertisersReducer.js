@@ -1,3 +1,5 @@
+import {ACTIONS} from '../actions/actions';
+
 const initialState = {
   currentAgency: null,
   advertiserSelected: null,
@@ -13,7 +15,7 @@ const initialState = {
 export default function advertisersReducer(state = initialState, action){
   switch(action.type){
     //Add to the state advertisers state with data from the API
-    case "RECIEVE_ADVERTISERS":{
+    case ACTIONS.RECIEVE_ADVERTISERS:{
       //Get the ids already in the state
       const ids = state.advertisers.map((item,i) =>{
         return item._id
@@ -30,7 +32,7 @@ export default function advertisersReducer(state = initialState, action){
         ]
       })
     }
-    case "CHANGE_ADVERTISERS_MESSAGE":{
+    case ACTIONS.CHANGE_ADVERTISERS_MESSAGE:{
       return Object.assign({},state,{
         advertisers: state.advertisers.map((advertisers) => {
           if(advertisers._id === 0){
@@ -44,11 +46,11 @@ export default function advertisersReducer(state = initialState, action){
       })
     }
     //Sets the currentAgency
-    case "CURRENT_AGENCY":{
+    case ACTIONS.CURRENT_AGENCY:{
       return {...state, currentAgency: action.payload}
     }
     //Sets the advertiser selected
-    case "ADVERTISER_SELECTED":{
+    case ACTIONS.ADVERTISER_SELECTED:{
       return {...state, advertiserSelected: action.payload}
     }
     default:

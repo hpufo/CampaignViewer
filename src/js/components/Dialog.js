@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from '../../sass/Dialog.scss';
 
 export default class Dialog extends React.Component{  
@@ -16,4 +17,10 @@ export default class Dialog extends React.Component{
       return (<div className="blank"></div>);
     }
   }
+}
+
+Dialog.PropTypes = {
+  status: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired
 }

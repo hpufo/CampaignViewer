@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from '../../sass/Dropdown.scss';
 
 export default class AgencyDropDown extends React.Component{  
-  //Makes the inital api call
-  componentWillMount(){
-    this.props.callAPI();
+  //Makes the inital call to get agenices
+  componentDidMount(){
+    this.props.getAgencies();
   }
   renderOptions(){
     return this.props.agencies.map((item, i)=>{
@@ -22,4 +23,10 @@ export default class AgencyDropDown extends React.Component{
       </div>
     );
   }
+}
+
+AgencyDropDown.PropTypes = {
+  agencies: PropTypes.array.isRequired,
+  handleSelect: PropTypes.func.isRequired,
+  getAgencies: PropTypes.func.isRequired
 }

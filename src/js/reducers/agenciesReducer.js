@@ -1,3 +1,5 @@
+import {ACTIONS} from '../actions/actions';
+
 const initialState = {
   agencies:[{
     _id: 0,
@@ -10,7 +12,7 @@ const initialState = {
 export default function agenciesReducer(state = initialState, action){
   switch(action.type){
     //Add agencies to the state with data from the API
-    case "RECEIVE_AGENCIES":{
+    case ACTIONS.RECEIVE_AGENCIES:{
       return Object.assign({},state,{
         agencies: [
           ...state.agencies,
@@ -18,7 +20,7 @@ export default function agenciesReducer(state = initialState, action){
         ]
       })
     }
-    case "CHANGE_AGENCY_MESSAGE":{
+    case ACTIONS.CHANGE_AGENCY_MESSAGE:{
       return Object.assign({},state,{
         agencies: state.agencies.map((agency) => {
           if(agency._id === 0){
