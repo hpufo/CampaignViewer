@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { advertiserSelected } from '../actions/actions';
+import { advertiserSelected } from '../actions/advertiserActions';
 import styles from '../../sass/Dropdown.scss';
 
 class AdvertiserDropDown extends React.Component{  

@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CampaignItem from './CampaignItem';
-import { saveCampaigns,syncCampaignWithAPI,setErrorMessage } from '../actions/actions';
+import { saveCampaigns,syncCampaignWithAPI } from '../actions/campaignActions';
+import { setErrorMessage } from '../actions/messageActions';
 import styles from '../../sass/CampaignTable.scss';
 
 class CampaignTable extends React.Component{

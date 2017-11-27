@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Datetime from 'react-datetime';
 import moment from 'moment';
-import { campaignNameChange,campaignStatusChange,campaignBudgetChange,campaignStartChange,campaignEndChange,campaignCheckboxChange,setErrorMessage } from '../actions/actions';
+import { campaignNameChange,campaignStatusChange,campaignBudgetChange,campaignStartChange,campaignEndChange,campaignCheckboxChange } from '../actions/campaignActions';
+import { setErrorMessage } from '../actions/messageActions';
 import styles from '../../sass/CampaignItem.scss';
 
 class CampaignItem extends React.Component{  

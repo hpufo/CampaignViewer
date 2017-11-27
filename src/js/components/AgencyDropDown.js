@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { getAgencies,getAdvertisers } from '../actions/actions';
+import { getAgencies } from '../actions/agencyActions';
+import { getAdvertisers } from '../actions/advertiserActions';
 import styles from '../../sass/Dropdown.scss';
 
 class AgencyDropDown extends React.Component{  

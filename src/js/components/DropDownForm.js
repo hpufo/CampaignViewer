@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getAdvertiserCampaigns } from '../actions/actions';
+import { getAdvertiserCampaigns } from '../actions/advertiserActions';
 import AgencyDropDown from './AgencyDropDown';
 import AdvertiserDropDown from './AdvertiserDropDown';
 import styles from "../../sass/DropdownForm.scss";

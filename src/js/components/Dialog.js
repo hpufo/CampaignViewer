@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { resetStatus } from '../actions/actions';
+import { resetStatus } from '../actions/messageActions';
 import styles from '../../sass/Dialog.scss';
 
 class Dialog extends React.Component{
