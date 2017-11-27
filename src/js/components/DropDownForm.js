@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getAdvertiserCampaigns } from '../actions/actions';
-import AgencyDropDownContainer from '../containers/AgencyDropDownContainer';
-import AdvertiserDropDownContainer from '../containers/AdvertiserDropDownContainer';
+import AgencyDropDown from './AgencyDropDown';
+import AdvertiserDropDown from './AdvertiserDropDown';
 import styles from "../../sass/DropdownForm.scss";
 
 class DropDownForm extends React.Component{
@@ -15,8 +15,8 @@ class DropDownForm extends React.Component{
   render(){
     return (
       <form className="DropDownForm" onSubmit={this.handleSubmit}>
-        <AgencyDropDownContainer />
-        <AdvertiserDropDownContainer />
+        <AgencyDropDown />
+        <AdvertiserDropDown />
         <input type="submit" value="Get Campaigns" className={styles.btn} />
       </form>
     );
