@@ -7,7 +7,7 @@ import styles from '../../sass/Dropdown.scss';
 
 class AgencyDropDown extends React.Component{  
   //Makes the inital api call
-  componentWillMount(){
+  componentDidMount(){
     this.props.dispatch(getAgencies());
   }
   handleSelect = (event) => {
