@@ -31,26 +31,29 @@ class CampaignItem extends React.Component{
     this.props.dispatch(campaignBudgetChange(formatedBugdet,this.props.index))    //Dispatches the action after all the validation
   }
   handleStartChange = (date) => {
-    //Check to see if the date is invalid
-    if(typeof date === "string" && !date.match(/[0-9]{2}\/[0-9]{2}\/[0-9]{2}/)){
-      //hack: for some reason datepicker will keep the invalid user input, even if the state contains the old valid data. So I am adding one day
-      let preDate = moment(this.props.campaign.start_date,'MM/DD/YY').add(1,'d')    
-      this.props.dispatch(setErrorMessage("Not a valid date must be: MM/DD/YY use the datepicker"))   //Send the error message
-      this.props.dispatch(campaignStartChange(preDate.format('MM/DD/YY'), this.props.index))          //Set the state to be done day ahead
-    }
-    else  //If valid
-      this.props.dispatch(campaignStartChange(date.format('MM/DD/YY'),this.props.index))  //send the action with the formated data
+    this.handleDateChange(date,true);
   }
   handleEndChange = (date) => {
+    this.handleDateChange(date,false);
+  }
+
+  handleDateChange = (date,startDate) => {
     //Check to see if the date is invalid
-    if(typeof date === "string" && !date.match(/[0-9]{2}\/[0-9]{2}\/[0-9]{2}/)){
+    if(typeof date === "string" && !date.match(/^[1-12]{2}\/[1-31]{2}\/[0-9]{2}$/)){
       //hack: for some reason datepicker will keep the invalid user input, even if the state contains the old valid data. So I am adding one day
-      let preDate = moment(this.props.campaign.end_date,'MM/DD/YY').add(1,'d')    
+      let preDate = moment(startDate? this.props.campaign.start_date : this.props.campaign.end_date,'MM/DD/YY').add(1,'d')    
       this.props.dispatch(setErrorMessage("Not a valid date must be: MM/DD/YY use the datepicker"))   //Send the error message
-      this.props.dispatch(campaignEndChange(preDate.format('MM/DD/YY'), this.props.index))          //Set the state to be done day ahead
+      if(startDate)
+        this.props.dispatch(campaignStartChange(preDate.format('MM/DD/YY'), this.props.index))          //Set the state to be done day ahead
+      else
+        this.props.dispatch(campaignEndChange(preDate.format('MM/DD/YY'), this.props.index))
     }
-    else
-      this.props.dispatch(campaignEndChange(date.format('MM/DD/YY'),this.props.index))
+    else{  //If valid
+      if(startDate)
+        this.props.dispatch(campaignStartChange(date.format('MM/DD/YY'),this.props.index))  //send the action with the formated data
+      else
+        this.props.dispatch(campaignEndChange(date.format('MM/DD/YY'),this.props.index))
+    }
   }
   
   render(){
