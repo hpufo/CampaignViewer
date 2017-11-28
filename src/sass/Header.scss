@@ -1,0 +1,75 @@
+$borderColor: #666666;
+$border: 1px solid $borderColor;
+$headerColor: #DDDDDD;
+$spriteURL: url("../images/sprite.png");
+
+@mixin icon($y:0px){
+  height: 18px;
+  width: 19px;
+  background:{
+    image: $spriteURL;
+    position: 0px $y;
+  }
+}
+
+.header{
+  background-color: $headerColor;
+  text-align: center;
+  height: 10%;
+  min-height: 57px;
+  max-height: 62px;
+}
+.appName{
+  font-weight: 500;
+  height: 50%;
+}
+.bar{
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  justify-content: space-around;
+  padding-top: 3px;
+  border:{
+    top: $border;
+    bottom: $border;    
+  };
+}
+.nav{
+  display: flex;
+  flex-basis : 6%;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 2px;
+}
+.search{
+  flex-basis: 88%;
+  margin-top: 1px;
+  input{
+    width: 100%;
+    height: 75%;
+    padding-left: 20px;
+    box-sizing: border-box;
+    background:{
+      image: $spriteURL;
+      repeat: no-repeat;
+      position:{
+        x: 0px;
+        y: -59px;
+      };
+    };
+  }
+}
+
+.back{
+  @include icon();
+}
+.foward{
+  @include icon(-19px);
+}
+.refresh{
+  @include icon(-38px);
+}
+.menu{
+  @include icon(-77px);
+}

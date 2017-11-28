@@ -1,0 +1,5 @@
+.btn{
+  // Composes: Is from CSS Modules, it allows me to use styles from other files
+  // use: composes: className from "path";
+  composes: btn from './styles.scss';
+}
