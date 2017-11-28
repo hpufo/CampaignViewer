@@ -1,0 +1,30 @@
+$borderColor: #666666;
+
+.container{
+  height: 100%;
+  border: 2px solid $borderColor;
+  border-radius: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.mainContent{
+  display: flex;
+  flex-direction: row;
+  padding: 2%;
+}
+@media (max-width: 814px){
+  .mainContent{
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+.left{
+  width: 16%;
+  min-width: 233px;
+  padding-right: 2%;
+}
+.right{
+  width: 100%;
+  min-width: 533px;
+}
