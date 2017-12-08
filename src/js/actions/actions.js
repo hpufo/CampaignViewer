@@ -1,8 +1,3 @@
-/* This file holds the action constants and url and api token
-*/
-export const url = "http://challenge.mediamath.com/api/";
-export const api_token = "?api_token=8219812fd484a2a680fb3ac399c009483c9566cb";
-
 /*
 * Constants
 */

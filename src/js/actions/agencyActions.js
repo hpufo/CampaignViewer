@@ -1,10 +1,11 @@
 import axios from 'axios';
-import {url,api_token,ACTIONS} from './actions';
+import {ACTIONS} from './actions';
+import {url,api_token} from '../config';
 
 /* Gets the Agencies from the API */ 
 export function getAgencies(){
   return function(dispatch){
-    axios.get(`${url}agencies${api_token}`)                                     //Building the url
+    axios.get(`${url}agencies?${api_token}`)                                     //Building the url
     .then((response) => {                                                       //When I recieve a response
       dispatch({type: ACTIONS.RECEIVE_AGENCIES, payload: response.data.agencies})     //Dispatech the agencies from the response
       dispatch({type: ACTIONS.CHANGE_AGENCY_MESSAGE, payload: "Choose an agency..."}) //Dispatch an action to update the message

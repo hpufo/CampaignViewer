@@ -1,10 +1,11 @@
 import axios from 'axios';
-import {url,api_token,ACTIONS} from './actions';
+import {ACTIONS} from './actions';
+import {url,api_token} from '../config';
 
 /* Gets the Advertisers for an agency from the API */
 export function getAdvertisers(agencyID){
   return function(dispatch){
-    axios.get(`${url}advertisers${api_token}&agency_id=${agencyID}`)              //Build the url
+    axios.get(`${url}advertisers?agency_id=${agencyID}${api_token}`)              //Build the url
     .then((response) => {                                                         //When the response is recieved
       dispatch({type: ACTIONS.CURRENT_AGENCY, payload: agencyID});                      //Dispatch the current agency
       dispatch({type: ACTIONS.RECIEVE_ADVERTISERS, payload: response.data.advertisers})  //And the advertisers from the response
@@ -19,7 +20,7 @@ export function getAdvertisers(agencyID){
 /* Gets the Campaigns for a advertiser from the API */
 export function getAdvertiserCampaigns(advertiserID){
   return function(dispatch){
-    axios.get(`${url}campaigns${api_token}&advertiser_id=${advertiserID}`)      //Same
+    axios.get(`${url}campaigns?advertiser_id=${advertiserID}${api_token}`)      //Same
     .then((response) => {                                                       //as
       dispatch({type: ACTIONS.RECIEVE_CAMPAIGNS, payload: response.data.campaigns});  //above
     })

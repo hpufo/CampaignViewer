@@ -1,11 +1,12 @@
 import axios from 'axios';
-import {url,api_token,ACTIONS} from './actions';
+import {ACTIONS} from './actions';
+import {url,api_token} from '../config';
 
 /* Saves all the campaigns in the object */
 export function saveCampaigns(objs){
   return function(dispatch){
     //For each element in objs array, create a promise and store it in the promises array
-    let promises = objs.map((obj) => axios.post(`${url}campaigns/${obj._id}/${api_token}`,obj))
+    let promises = objs.map((obj) => axios.post(`${url}campaigns/${obj._id}/?${api_token}`,obj))
     //Use axios.all() to send several post calls
     axios.all(promises).then((response) => {
       dispatch({type: ACTIONS.STATUS_MESSAGE, payload: {status: "Success", message: "All selected creatives have been successfully updated!"}}) //Dispatch a success message if it all went good
@@ -19,7 +20,7 @@ export function saveCampaigns(objs){
 export function syncCampaignWithAPI(ids){
   return function(dispatch){
     //Array containing all the promises
-    let promises = ids.map((id) => axios.get(`${url}campaigns/${id}/${api_token}`))   //Build the url to get the individual campaign
+    let promises = ids.map((id) => axios.get(`${url}campaigns/${id}/?${api_token}`))   //Build the url to get the individual campaign
     
     //Send several get calls
     axios.all(promises).then((responses) => {                                         //On success
