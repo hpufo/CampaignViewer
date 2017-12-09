@@ -8,7 +8,7 @@
 const useMediaMathAPI = true;
 
 const MediaMathURL = "http://challenge.mediamath.com/api/";
-const MyURL = "https://peaceful-basin-59779.herokuapp.com/api/";
+const MyURL = "http://peaceful-basin-59779.herokuapp.com/api/";
 
 export const url = useMediaMathAPI ? MediaMathURL : MyURL;
 export const api_token =  useMediaMathAPI ? "&api_token=8219812fd484a2a680fb3ac399c009483c9566cb" : "";
