@@ -3,7 +3,7 @@ Programming challenge for MediaMath. I created a Campaign Viewer using their sam
 
 Technologies used: React, Redux, Redux-thunk, Modular SCSS, Webpack, Axios, React-Datetime
 
-Note: GHPages is using my API. If you run into any API problems when you run this project locally change the flag to false to use my API in src/js/config.js
+Note: If my deployment is not doing the API call, it is probably due to your firewall blocking the https request/response from the API. In that case either allow it or download the project and change https to http in src/js/config.js
 
 Usefull commands:
 
