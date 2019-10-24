@@ -1,4 +1,7 @@
 # CampaignViewer
+Deployed on GH Pages: https://hpufo.github.io/CampaignViewer
+Link to the backend: https://github.com/hpufo/CVBackend
+
 Programming challenge for MediaMath. I created a Campaign Viewer using their sample API. To do this I used React/Redux.
 
 Technologies used: React, Redux, Redux-thunk, Modular SCSS, Webpack, Axios, React-Datetime
